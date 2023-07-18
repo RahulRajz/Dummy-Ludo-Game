@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ludo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="heading">
+            <h1>Ludo Game Using JavaScript</h1>
+        </div>
+        <div class="dice">
+            <h2>Player 1</h2>
+            <img src="./Image/dice1.png" alt="" id="img1">
+        </div>
+        <div class="dice">
+            <h2>Player 2</h2>
+            <img src="./Image/dice3.png" alt="" id="img2">
+        </div>
+        <div>
+            <button id="btn">Click Me!</button>
+        </div>
+    </div>
+
+    <!-- JavaScript Code  -->
+    <script>
+
+        let btn = document.getElementById('btn');
+        btn.addEventListener('click',()=>{
+
+            // Player 1 Code
+            let player1 = Math.floor(Math.random()*6) +1;
+            let player1dice = `./Image/dice${player1}.png`;
+            document.getElementById('img1').setAttribute('src', player1dice);
+
+            // Player 2 Code 
+            let player2 = Math.floor(Math.random()*6) +1;
+            let player2dice = `./Image/dice${player2}.png`;
+            document.getElementById('img2').setAttribute('src', player2dice);
+
+            // Condition 
+            if(player1 > player2){
+                document.querySelector('h1').innerHTML = "Player 1 won!"
+            } else if(player1 < player2){
+                document.querySelector('h1').innerHTML = "Player 2 won!";
+            } else{
+                document.querySelector('h1').innerHTML = "Draw";
+            }
+        })
+    </script>
+</body>
+</html>
